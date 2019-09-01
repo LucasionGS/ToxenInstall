@@ -14,18 +14,24 @@ namespace ToxenUpdate
     {
         static WebClient wc = new WebClient();
         static GitHubClient github = new GitHubClient(new ProductHeaderValue("Toxen"));
-        static string toxenPath = "C:/Toxen/";
+        static string toxenPath = "./";
         static string toxenFile = "ToxenLatest.zip";
         static void Main(string[] args)
         {
-            if (args[0] == "-here")
+            if (args.Length > 0 && args[0] == "-here")
+            {
+                goto startDownload;
+            }
+            if (File.Exists(toxenPath + "Toxen.exe"))
             {
                 goto startDownload;
             }
         start:
-            Console.WriteLine("Do you want to use \"" + toxenPath + "\" as your directory? (yes/no):");
+            //Console.WriteLine("Do you want to use \"" + toxenPath + "\" as your directory? (yes/no):");
             //Make current directory... maybe..
-            //Console.WriteLine("Do you want to use current directory as your directory? (yes/no):");
+            Console.WriteLine("Do you want to install in the current directory?");
+            IonLib.Base.WriteLineInColor(Path.GetFullPath(toxenPath),ConsoleColor.Yellow);
+            Console.WriteLine("(yes/no):");
             Console.Write("> ");
             string useDefault = Console.ReadLine();
             if (useDefault == "y" || useDefault == "yes")
@@ -49,6 +55,7 @@ namespace ToxenUpdate
             {
                 toxenPath += "/";
             }
+            toxenPath = Path.GetFullPath(toxenPath);
             Install();
             //ZipFile.ExtractToDirectory(toxenPath + toxenFile, toxenPath);
             ZipArchive filelist = ZipFile.OpenRead(toxenPath + toxenFile);
@@ -58,26 +65,63 @@ namespace ToxenUpdate
                 string pathFromFile = saveToPath.Substring(0, saveToPath.Length - saveToPath.Split('/')[saveToPath.Split('/').Length - 1].Length);
                 Console.WriteLine(saveToPath);
                 Console.WriteLine(pathFromFile);
-                if (saveToPath.EndsWith("settings.json"))
+                if (!saveToPath.EndsWith("settings.json"))
                 {
                     try
                     {
-                        item.ExtractToFile(Path.Combine(toxenPath, item.FullName), true);
-                    }
-                    catch (Exception)
-                    {
-                        if (!Directory.Exists(pathFromFile))
+                        if (item.Name != "")
                         {
-                            Console.WriteLine("Creating directory: " + pathFromFile);
-                            Directory.CreateDirectory(pathFromFile);
+                            item.ExtractToFile(Path.Combine(toxenPath, item.FullName), true);
                         }
+                        else
+                        {
+                            try
+                            {
+                                if (File.Exists(pathFromFile))
+                                {
+                                    File.Delete(pathFromFile);
+                                }
+
+                                if (!Directory.Exists(pathFromFile))
+                                {
+                                    Console.WriteLine("Creating directory: " + pathFromFile);
+                                    Directory.CreateDirectory(pathFromFile);
+                                }
+                            }
+                            catch (Exception e2)
+                            {
+                                Console.WriteLine(e2.Message);
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
                     }
                 }
             }
             filelist.Dispose();
+            if (!File.Exists(toxenPath+"ToxenInstall.exe"))
+            {
+                File.Copy(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName, toxenPath+"ToxenInstall.exe");
+            }
             File.Delete(toxenPath + toxenFile);
-            Console.WriteLine("Update completed");
-            Thread.Sleep(1000);
+            IonLib.Base.WriteLineInColor("|---------------------------|", ConsoleColor.Green);
+            IonLib.Base.WriteLineInColor("|  Installation completed.  |", ConsoleColor.Green);
+            IonLib.Base.WriteLineInColor("|---------------------------|", ConsoleColor.Green);
+            IonLib.Base.WriteLineInColor("|      Starting Toxen..     |", ConsoleColor.Green);
+            IonLib.Base.WriteLineInColor("|---------------------------|", ConsoleColor.Green);
+            if (File.Exists(toxenPath + "Toxen.exe"))
+            {
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                startInfo.FileName = "cmd.exe";
+                startInfo.Arguments = "/C cd \"" + toxenPath + "\" && Toxen.exe";
+                process.StartInfo = startInfo;
+                process.Start();
+            }
+            Thread.Sleep(2000);
             Environment.Exit(0);
         }
 

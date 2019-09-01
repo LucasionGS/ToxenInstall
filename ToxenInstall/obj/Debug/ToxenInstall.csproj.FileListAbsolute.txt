@@ -1,0 +1,22 @@
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.csprojAssemblyReference.cache
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.csproj.CoreCompileInputs.cache
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\bin\Debug\ToxenInstall.exe.config
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\bin\Debug\ToxenInstall.exe
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\bin\Debug\ToxenInstall.pdb
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\bin\Debug\Octokit.dll
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\bin\Debug\Octokit.xml
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.csproj.CopyComplete
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.exe
+C:\Users\lucnie\source\repos\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.pdb
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\bin\Debug\ToxenInstall.exe.config
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\bin\Debug\ToxenInstall.exe
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\bin\Debug\ToxenInstall.pdb
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\bin\Debug\Octokit.xml
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.csprojAssemblyReference.cache
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.csproj.CoreCompileInputs.cache
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.csproj.CopyComplete
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.exe
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.pdb
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.Properties.Resources.resources
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.csproj.GenerateResource.cache
+E:\Unsorted\Visual Studio Project\ToxenInstall\ToxenInstall\obj\Debug\ToxenInstall.csproj.Fody.CopyLocal.cache
